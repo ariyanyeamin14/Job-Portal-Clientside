@@ -2,26 +2,35 @@ import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import RegisterAnimation from '../../assets/lottie/register.json'
 import AuthContext from '../../context/AuthContext/AuthContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const { createUser, googleSignin } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || "/"
+    const handleSignin = () => {
+        googleSignin();
+        navigate(from)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const name = e.target.name.value 
-        const email = e.target.email.value 
-        const password = e.target.password.value 
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const password = e.target.password.value
         console.log(email, password, name)
 
         createUser(email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(user)
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            console.log(errorMessage)
-          });
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+                navigate(from)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage)
+            });
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -56,6 +65,10 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <div className='w-full p-4'>
+                        <div className="divider">OR</div>
+                        <button className='w-full btn btn-primary' onClick={handleSignin}>Signin With Google</button>
+                    </div>
                 </div>
             </div>
         </div>

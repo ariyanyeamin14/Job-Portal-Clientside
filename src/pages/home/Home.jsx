@@ -1,9 +1,12 @@
 import React from 'react';
+import Banner from './Banner';
+import JobsSection from './JobsSection';
 
 const Home = () => {
     return (
-        <div>
-            <h4 className='text-5xl'>hello world</h4>
+        <div className=''>
+            <Banner></Banner>
+            <JobsSection></JobsSection>
         </div>
     );
 };
