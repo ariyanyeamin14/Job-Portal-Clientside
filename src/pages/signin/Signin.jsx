@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import SigninAnimation from '../../assets/lottie/signin.json'
 import AuthContext from '../../context/AuthContext/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signin = () => {
     const { signinUser, googleSignin } = useContext(AuthContext);
@@ -13,18 +14,20 @@ const Signin = () => {
         googleSignin();
         navigate(from)
     }
-    console.log(from)
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(email, password)
 
         signinUser(email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                navigate(from)
+                const user = { email: userCredential.user.email }
+                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+                    .then(data => {
+                        console.log(data.data)
+                    })
+                // navigate(from)
             })
             .catch((error) => {
                 const errorMessage = error.message;
