@@ -30,7 +30,7 @@ const MyPostedJobs = () => {
                     </thead>
                     <tbody>
                         {
-                            jobs.map((job, index) => <tr>
+                            jobs.map((job, index) => <tr key={index}>
                                 <td>
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
