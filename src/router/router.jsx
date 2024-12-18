@@ -8,10 +8,10 @@ import Signin from "../pages/signin/Signin";
 import JobDetails from "../pages/jobDetails/JobDetails";
 import PrivateRoute from "../pages/privateRoute/PrivateRoute";
 import JobApply from "../pages/jobApply/JobApply";
-import MyApplications from "../pages/signin/myApplications/MyApplications";
 import AddJob from "../pages/addJob/AddJob";
 import MyPostedJobs from "../pages/myPostedJobs/MyPostedJobs";
 import ViewApplications from "../pages/viewApplications/ViewApplications";
+import MyApplications from "../pages/myApplications/MyApplications";
 
   const router = createBrowserRouter([
     {
