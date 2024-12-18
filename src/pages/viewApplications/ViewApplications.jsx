@@ -6,7 +6,6 @@ const ViewApplications = () => {
     const applications = useLoaderData()
 
     const handleStatusUpdate = (e, id) => {
-        console.log(e.target.value, id)
         const data = {
             status: e.target.value
         }
@@ -30,7 +29,6 @@ const ViewApplications = () => {
                 }
             })
     }
-    console.log(applications)
     return (
         <div className='w-[90%] lg:w-[80%] mx-auto my-20'>
             <div className="overflow-x-auto">

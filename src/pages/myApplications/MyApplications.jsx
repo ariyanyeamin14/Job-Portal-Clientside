@@ -9,11 +9,11 @@ const MyApplications = () => {
     const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
-        // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+        // fetch(`https://job-portal-serverside.vercel.app/job-application?email=${user.email}`)
         // .then(res => res.json())
         // .then(data => setJobs(data))
 
-        // axios.get(`http://localhost:5000/job-application?email=${user.email}`, { withCredentials: true})
+        // axios.get(`https://job-portal-serverside.vercel.app/job-application?email=${user.email}`, { withCredentials: true})
         // .then(res => setJobs(res.data))
 
         // this is a custom hook 
@@ -22,7 +22,6 @@ const MyApplications = () => {
 
     }, [user.email])
     
-    console.log(jobs)
     return (
         <div>
             <h2>Totall Jobs : {jobs?.length} </h2>

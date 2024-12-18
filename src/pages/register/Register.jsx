@@ -19,17 +19,14 @@ const Register = () => {
         const name = e.target.name.value
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(email, password, name)
 
         createUser(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user)
                 navigate(from)
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                console.log(errorMessage)
             });
     }
     return (

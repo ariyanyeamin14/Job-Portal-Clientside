@@ -3,8 +3,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const JobDetails = () => {
     const  {_id, applicationDeadline, category, company, company_logo, description, hr_email, hr_name, jobType, location, requirements, responsibilities, salaryRange, status, title}  = useLoaderData()
-    // console.log(applicationDeadline, category, company, description)
-    // console.log(job)
     return (
         <div className="card card-compact bg-base-200 shadow-xl p-4 w-[80%] lg:w-[50%] mx-auto my-20">
             <div className='flex gap-2 items-center'>

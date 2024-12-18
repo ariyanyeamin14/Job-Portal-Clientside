@@ -33,12 +33,12 @@ import MyApplications from "../pages/myApplications/MyApplications";
         {
           path: "job/:id",
           element: <PrivateRoute> <JobDetails></JobDetails> </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+          loader: ({params}) => fetch(`https://job-portal-serverside.vercel.app/job/${params.id}`)
         },
         {
           path: "jobApply/:id",
           element: <PrivateRoute> <JobApply></JobApply> </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/job/${params.id}`)
+          loader: ({params}) => fetch(`https://job-portal-serverside.vercel.app/job/${params.id}`)
         },
         {
           path: "my-applications",
@@ -55,7 +55,7 @@ import MyApplications from "../pages/myApplications/MyApplications";
         {
           path: "viewApplications/:job_id",
           element: <PrivateRoute> <ViewApplications></ViewApplications> </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`) 
+          loader: ({params}) => fetch(`https://job-portal-serverside.vercel.app/job-applications/jobs/${params.job_id}`) 
         }
       ]
     },

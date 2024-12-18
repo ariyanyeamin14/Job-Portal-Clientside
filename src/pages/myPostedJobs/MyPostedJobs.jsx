@@ -10,11 +10,11 @@ const MyPostedJobs = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/jobs?email=${user.email}`)
+        fetch(`https://job-portal-serverside.vercel.app/jobs?email=${user.email}`)
             .then(res => res.json())
             .then(data => setJobs(data))
     }, [user.email])
-    // console.log(jobs)
+
     return (
         <div className='w-[90%] lg:w-[80%] mx-auto my-20'>
             <div className="overflow-x-auto">
