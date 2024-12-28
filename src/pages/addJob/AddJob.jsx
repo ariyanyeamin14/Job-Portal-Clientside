@@ -9,7 +9,7 @@ const AddJob = () => {
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
         const { min, max, currency, ...newJob } = initialData
-        newJob.salaryRange = { min, max, currency }
+        newJob.salaryRange = { min: parseInt(min), max: parseInt(max), currency }
         newJob.requirements = newJob.requirements.split('\n')
         newJob.responsibilities = newJob.responsibilities.split('\n')
 
@@ -142,7 +142,7 @@ const AddJob = () => {
                     <label className="label">
                         <span className="label-text">HR Email</span>
                     </label>
-                    <input defaultValue={user.email} name='hr_email' type="text" placeholder="HR Email" className="input input-bordered" required />
+                    <input readOnly defaultValue={user.email} name='hr_email' type="text" placeholder="HR Email" className="input input-bordered" required />
                 </div>
                 {/* deadline */}
                 <div className="form-control">
@@ -154,7 +154,7 @@ const AddJob = () => {
                 {/* Company Logo */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">HR Email</span>
+                        <span className="label-text">Company Logo</span>
                     </label>
                     <input name='company_logo' type="text" placeholder="Company Logo" className="input input-bordered" required />
                 </div>
